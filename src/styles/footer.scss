@@ -1,6 +1,6 @@
 footer.footer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -12,5 +12,12 @@ footer.footer {
       color: var(--text-light);
       font-size: .8rem;
       margin-bottom: -.4rem;
+      a {
+        text-decoration: none;
+        color: var(--blue);
+        &:hover {
+          border-bottom: 1px dotted var(--blue);
+        }
+      }
   }
 }

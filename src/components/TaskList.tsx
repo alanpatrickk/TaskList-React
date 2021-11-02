@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, FormEvent } from 'react'
 
 import '../styles/tasklist.scss'
 
@@ -15,7 +15,10 @@ export function TaskList() {
   const [newTaskTitle, setNewTaskTitle] = useState('');
   const [lastId, setlastId] = useState(0);
 
-  function handleCreateNewTask() {
+  function handleCreateNewTask(event: FormEvent) {
+    
+    event.preventDefault();
+
     if ( !newTaskTitle ) return;
 
     setlastId(lastId + 1);
@@ -50,41 +53,47 @@ export function TaskList() {
         <h2>Minhas tasks</h2>
 
         <div className="input-group">
-          <input 
-            type="text" 
-            placeholder="Adicionar novo todo" 
-            onChange={(e) => setNewTaskTitle(e.target.value)}
-            value={newTaskTitle}
-          />
-          <button type="submit" data-testid="add-task-button" onClick={handleCreateNewTask}>
-            <FiCheckSquare size={16} color="#fff"/>
-          </button>
+          <form onSubmit={handleCreateNewTask}>
+            <input 
+              type="text" 
+              placeholder="Adicionar novo todo" 
+              onChange={(e) => setNewTaskTitle(e.target.value)}
+              value={newTaskTitle}
+            />
+            <button type="submit" data-testid="add-task-button" onClick={handleCreateNewTask}>
+              <FiCheckSquare size={16} color="#fff"/>
+            </button>
+          </form>
         </div>
       </header>
 
       <main>
         <ul>
-          {tasks.map(task => (
-            <li key={task.id}>
-              <div className={task.isComplete ? 'completed' : ''} data-testid="task" >
-                <label className="checkbox-container">
-                  <input 
-                    type="checkbox"
-                    readOnly
-                    checked={task.isComplete}
-                    onClick={() => handleToggleTaskCompletion(task.id)}
-                  />
-                  <span className="checkmark"></span>
-                  <p>{task.title}</p>
-                </label>
-              </div>
+          {tasks.length <= 0 ? (
+            <li className="empty">Nada encontrado</li>
+          ) : 
+            tasks.map(task => (
+              <li key={task.id}>
+                <div className={task.isComplete ? 'completed' : ''} data-testid="task" >
+                  <label className="checkbox-container">
+                    <input 
+                      type="checkbox"
+                      readOnly
+                      checked={task.isComplete}
+                      onClick={() => handleToggleTaskCompletion(task.id)}
+                    />
+                    <span className="checkmark"></span>
+                    <p>{task.title}</p>
+                  </label>
+                </div>
 
-              <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(task.id)}>
-                <FiTrash size={16}/>
-                <span>Deletar</span>
-              </button>
-            </li>
-          ))}
+                <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(task.id)}>
+                  <FiTrash size={16}/>
+                  <span>Deletar</span>
+                </button>
+              </li>
+            )
+          )}
           
         </ul>
       </main>

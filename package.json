@@ -1,13 +1,12 @@
 {
   "name": "tasklist-react",
-  "homepage": "https://alanpatrickk.github.io/tasklist-react",
+  "homepage": "https://alanpatrickk.github.io/TaskList-React",
   "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
     "test": "jest --watchAll",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {

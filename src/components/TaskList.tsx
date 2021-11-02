@@ -13,17 +13,35 @@ interface Task {
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
+  const [lastId, setlastId] = useState(0);
 
   function handleCreateNewTask() {
-    // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+    if ( !newTaskTitle ) return;
+
+    setlastId(lastId + 1);
+
+    const newTask = {
+      id: lastId,
+      title: newTaskTitle,
+      isComplete: false
+    }
+    setTasks([...tasks, newTask]);
+
+    setNewTaskTitle('');
+
   }
 
   function handleToggleTaskCompletion(id: number) {
-    // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+    const allTasks = tasks.map( task => task.id === id ? {
+      ...task,
+      isComplete: !task.isComplete
+    } : task);
+    setTasks(allTasks);
   }
 
   function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+    const tasksFiltered = tasks.filter( task => task.id !== id);
+    setTasks(tasksFiltered);
   }
 
   return (
@@ -57,18 +75,20 @@ export function TaskList() {
                     onClick={() => handleToggleTaskCompletion(task.id)}
                   />
                   <span className="checkmark"></span>
+                  <p>{task.title}</p>
                 </label>
-                <p>{task.title}</p>
               </div>
 
               <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(task.id)}>
                 <FiTrash size={16}/>
+                <span>Deletar</span>
               </button>
             </li>
           ))}
           
         </ul>
       </main>
+
     </section>
   )
 }

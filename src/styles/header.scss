@@ -1,6 +1,9 @@
 header.header {
   background: var(--blue);
   padding-top: 2rem;
+  @media (max-width:767px) {
+    padding-top: 1.2rem;
+  }
   
   > div {
     max-width: 1120px;
@@ -11,5 +14,13 @@ header.header {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    span {
+      color: var(--background);
+      font-size: .8rem;
+      margin-left: 1rem;
+      margin-bottom: -.4rem;
+    }
+
   }
 }

@@ -7,7 +7,7 @@
     "dev": "webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
     "test": "jest --watchAll",
-    "predeploy": "react-scripts build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {

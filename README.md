@@ -30,7 +30,8 @@ Projeto de teste do curso de ReactJS da Rocketseat - [Desafio 01 - Conceitos do 
 - Adicionei algumas propriedades no package.json
 - Rodei o comando yarn run deploy (script gh-pages -d build)
 - (Obs.: após vários erros, consegui corrigir para funcionar a publicação)
-- Para visitar o Github Pages do projeto, [clique aqui](https://alanpatrickk.github.io/TaskList-React/)
+
+### ⠀⠀⠀ Para visitar o Github Pages do projeto, [clique aqui](https://alanpatrickk.github.io/TaskList-React/) ⠀⠀⠀
 
 ---
 

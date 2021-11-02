@@ -28,5 +28,15 @@ Projeto de teste do curso de ReactJS da Rocketseat - [Desafio 01 - Conceitos do 
 
 - Utilizei a biblioteca [gh-pages](https://www.npmjs.com/package/gh-pages)
 - Adicionei algumas propriedades no package.json
+- Rodei o comando yarn run deploy (script gh-pages -d build)
+- (Obs.: após vários erros, consegui corrigir para funcionar a publicação)
 
-[Clique aqui para acessar o link com os detalhes do desafio](https://www.notion.so/Desafio-01-Conceitos-do-React-51e4099a6e2f4d4bae94f9fe75bb769d#66c870a0713c49dea3c1d07063f15af5)
+### ⠀⠀⠀ Para visitar o Github Pages do projeto, [clique aqui](https://alanpatrickk.github.io/TaskList-React/) ⠀⠀⠀
+
+---
+
+##### As informações aparecem apenas em tela durante a utilização. Nada é salvo em cache ou banco de dados.
+
+---
+
+[Clique aqui para acessar o link com os detalhes do desafio da Rocketseat](https://www.notion.so/Desafio-01-Conceitos-do-React-51e4099a6e2f4d4bae94f9fe75bb769d#66c870a0713c49dea3c1d07063f15af5)
